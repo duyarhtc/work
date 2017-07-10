@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Department</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+    <h2>department Details</h2>
+        <div>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Department Id:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${department.id}">Department Id</p></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Name:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${department.name}">Name</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">description:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${department.description}">Description</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Employee:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${'id:'+department.employee.id  }">Employee id</p>
+                        <p class="form-control-static" th:text="${'name:'+department.employee.name}">Employee name</p>
+                        <p class="form-control-static" th:text="${'surname:' +department.employee.surname}">Employee surname</p>
+                        <p class="form-control-static" th:text="${'salary:' +department.employee.salary}">Employee salary</p>
+                              
+                    </div>
+               
+               
+               
+                </div>
+            </form>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Employees</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(employees)}">
+        <h2>Employees List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>name</th>
+                <th>surname</th>
+                <th>salary</th>
+                 <th>View</th>
+                 <th>edit</th>
+                 <th>delete</th>
+               
+            </tr>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.id}"><a href="/employee/${employee.id}">Id</a></td>
+                <td th:text="${employee.name}"> name </td>
+                <td th:text="${employee.surname}">surname</td>
+                <td th:text="${employee.salary}">salary</td>
+                <td><a th:href="${ '/employee/' + employee.id}">View</a></td>
+                <td><a th:href="${ '/employee/update/' + employee.id}">Edit</a></td>
+                <td><a th:href="${ '/employee/delete/' + employee.id}">Delete</a></td>
+                 
+              
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Departments</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(departments)}">
+        <h2>Departments List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>description</th>
+                <th>employee</th>
+                 <th>View</th>
+                 <th>edit</th>
+                 <th>delete</th>
+               
+            </tr>
+            <tr th:each="department : ${departments}">
+                <td th:text="${department.id}"><a href="/department/${department.id}">Id</a></td>
+                <td th:text="${department.name}"> name </td>
+                <td th:text="${department.description}">description</td>
+                <td th:text="${'id:'+department.employee.id+' '+'name:'+ department.employee.name+' '+'surname:' + department.employee.surname+' '+'salary:' +department.employee.salary }">employee</td>
+                <td><a th:href="${ '/department/' + department.id}">View</a></td>
+                <td><a th:href="${ '/department/update/' + department.id}">Edit</a></td>
+                <td><a th:href="${ '/department/delete/' + department.id}">Delete</a></td>
+                 
+              
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

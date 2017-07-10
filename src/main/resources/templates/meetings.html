@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Meetings</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(meetings)}">
+        <h2>Meetings List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>description</th>
+                <th>department</th>
+                 <th>View</th>
+                 <th>edit</th>
+                 <th>delete</th>
+               
+            </tr>
+            <tr th:each="meeting : ${meetings}">
+                <td th:text="${meeting.id}"><a href="/meeting/${meeting.id}">Id</a></td>
+                <td th:text="${meeting.name}"> name </td>
+                <td th:text="${meeting.description}">description</td>
+                <td th:text="${'id:'+meeting.department.id+' '+'name:'+ meeting.department.name+' '+'description:' +meeting.department.description+' '+ 'employee:' +meeting.department.employee }">department</td>
+                <td><a th:href="${ '/meeting/' + meeting.id}">View</a></td>
+                <td><a th:href="${ '/meeting/update/' + meeting.id}">Edit</a></td>
+                <td><a th:href="${ '/meeting/delete/' + meeting.id}">Delete</a></td>
+                 
+              
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
