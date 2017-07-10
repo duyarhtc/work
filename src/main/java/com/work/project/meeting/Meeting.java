@@ -1,7 +1,5 @@
 package com.work.project.meeting;
 
-/*model meeting*/
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +16,7 @@ public class Meeting {
 	    private Integer id;
 	    private String name;
 		private String description;
-		//@ManytoMany //departman her meetingse katılabilir.Aynı zamnda birden fazla meeting ile eşlebilir
+		@OneToOne //departman her meetingse katılabilir.Aynı zamnda birden fazla meeting ile eşlebilir
 		private Department department;
 		
 	

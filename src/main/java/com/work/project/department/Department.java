@@ -1,5 +1,6 @@
 package com.work.project.department;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +9,7 @@ import javax.persistence.OneToOne;
 
 
 import com.work.project.employee.Employee;
-/*model Department*/
+
 @Entity
 public class Department {
 	  @Id
@@ -18,8 +19,8 @@ public class Department {
        private String name;
 	   private String description;
 		
-	   @OneToOne //bir çalışan bir departmana ait olabilir
-		private Employee employee;
+	  @OneToOne
+	   private Employee employee;
 		
 		public Department(Integer id,String name, String description, Integer empid) {
 			super();

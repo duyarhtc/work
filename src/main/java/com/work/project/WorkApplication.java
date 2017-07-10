@@ -1,7 +1,5 @@
 package com.work.project;
 
-/*Projemizi ayağa kaldıran start class*/
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

@@ -1,6 +1,6 @@
 package com.work.project.employee;
-/*model employee*/
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,8 +12,9 @@ import javax.persistence.Version;
 @Entity
 public class Employee {
 	@Id
-	 @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	
 	private String name;
 	private String surname;
 	private int salary;
@@ -22,20 +23,24 @@ public class Employee {
 	}
 	
 	
-	public Employee( int id,String name, String surname, int salary) {
+	public Employee( Integer id,String name, String surname, int salary) {
 		super();
 		this.id=id;
 		this.name = name;
 		this.surname = surname;
 		this.salary = salary;
 	}
+	
+	@Column(name = "ID", unique = true, nullable = false)
 	public Integer getId() {
 		return id;
 	}
-	
+
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
 	
 
 	public String getName() {

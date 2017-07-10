@@ -1,5 +1,4 @@
 package com.work.project.department;
-/* service and CRUD function*/
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +17,7 @@ public class DepartmentService {
 
 	
 	@Autowired
-	private DepartmentRepository departmentrepository;
+	private DepartmentReporsity departmentrepository;
 	
 	
 	public Iterable<Department> getAllDepartments(){
