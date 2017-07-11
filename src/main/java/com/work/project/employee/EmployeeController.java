@@ -16,10 +16,10 @@ public class EmployeeController {
 	@Autowired//employee servise ile bağlantı sağlıyoruz
 	private EmployeeService employeeservice;
 	
+	/*html  ve Thymeleaf içinde değerlere ulaşmak için Model yapısını kullanıyoruz*/
 	
 	@RequestMapping(value="/employees", method=RequestMethod.GET)//tüm employee sıralıyoruz
-	
-	   public String GetAllEmployees(Model model){
+	public String GetAllEmployees(Model model){
 		
 	        model.addAttribute("employees",employeeservice.getAllEmployees());
 	        System.out.println("Returning remployees:");
@@ -56,11 +56,11 @@ public class EmployeeController {
 	    	
 	    }
 	    
-	    @RequestMapping(value="/employee/delete/{id}")//body kısmında delete işlemi ile delete yapıyoruz 
+	    @RequestMapping(value="/employee/delete/{id}")// delete işlemi yapıyoruz 
 	    public String DeleteEmployee(@PathVariable int id,Model model){
 	    	employeeservice.deleteEmployee(id);
 	    	model.addAttribute("employees",employeeservice.getAllEmployees());
-	    	return "employees";
+	    	return "employees"; //veri kontrolü için tüm listeyi getiren html i çağırıyoruz
 	    	
 	    }
 	    

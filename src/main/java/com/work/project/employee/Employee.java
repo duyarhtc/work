@@ -1,4 +1,5 @@
 package com.work.project.employee;
+/*Model Employee*/
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

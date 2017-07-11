@@ -1,5 +1,7 @@
 package com.work.project.config;
 
+/*for h2 configuration*/
+
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;

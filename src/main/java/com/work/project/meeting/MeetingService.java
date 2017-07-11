@@ -1,4 +1,5 @@
 package com.work.project.meeting;
+/*CRUD functions*/
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +18,7 @@ public class MeetingService {
 
 	
 	@Autowired
-	private MeetingReporsity meetingrepository;
+	private MeetingRepository meetingrepository;
 	
 	
 	

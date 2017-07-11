@@ -1,5 +1,7 @@
 package com.work.project.department;
 
+/*Model Department*/
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

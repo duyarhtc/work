@@ -1,5 +1,7 @@
 package com.work.project.department;
 
+/* URL Mapping and html file call*/
+
 
 import java.util.List;
 
@@ -22,6 +24,7 @@ public class DepartmentController {
 	@Autowired//department servise ile bağlantı sağlıyoruz
 	private DepartmentService departmentservice;
 	
+	/*html  ve Thymeleaf içinde değerlere ulaşmak için Model yapısını kullanıyoruz*/
 	
 	@RequestMapping(value="/departments",method=RequestMethod.GET)
 	public String GetAllDepartments(Model model){
@@ -29,26 +32,26 @@ public class DepartmentController {
 		return "departments";
 	}
 	
-	@RequestMapping("department/new")//employee yapısında bi nesne oluşturuyoruz
+	@RequestMapping("department/new")//department yapısında bi nesne oluşturuyoruz
     public String newDepartment(Model model){
         model.addAttribute("department", new Department());
         return "departmentform";
     }
 	
-	 @RequestMapping("/department/{id}")//id si verilen emp getiriyoruz
+	 @RequestMapping("/department/{id}")//id si verilen department getiriyoruz//update ve delete işleminde de kullanıyoruz
 	    public String GetDepartment(Model model,@PathVariable Integer id){
 		 model.addAttribute("department", departmentservice.getDepartment(id));
 			return "departmentshow";
 			}
 	 
-	    @RequestMapping(method=RequestMethod.POST,value="department")//body kısmında post işlemi ile yeni employee ekliyoruz 
+	    @RequestMapping(method=RequestMethod.POST,value="department")// post işlemi ile yeni department ekliyoruz //update işleminde de kullanıyoruz
 	    public String AddDepartment(Model model,Department department){
 	    	model.addAttribute("department",departmentservice.addDepartment(department));
 	    	return "redirect:/department/" + department.getId();
 	    	
 	    }
 	    
-	    @RequestMapping(value="/department/update/{id}")//seçilen emp alıp bizi form ekranına gönderiyor oradan tekrar save yapıyoruz
+	    @RequestMapping(value="/department/update/{id}")//seçilen department alıp bizi form ekranına gönderiyor oradan tekrar save yapıyoruz
 	    public String UpdateDepartment(Model model,@PathVariable int id){
 	    	model.addAttribute("department",departmentservice.getDepartment(id));
 	    	 return "departmentform";
@@ -56,11 +59,11 @@ public class DepartmentController {
 	    }
 	    
 	    
-	    @RequestMapping("/department/delete/{id}")//body kısmında delete işlemi ile delete yapıyoruz 
+	    @RequestMapping("/department/delete/{id}")//delete yapıyoruz 
 	    public String DeleteDepartment(Model model,@PathVariable Integer id){
 	    	departmentservice.deleteDepartment(id);
 	    	model.addAttribute("departments",departmentservice.getAllDepartments() );
-	        return "departments";
+	        return "departments"; //veri kontolü için tüm listeyi olduğu html sayfasını çağırıyoruz
 	    	
 	    }
 	

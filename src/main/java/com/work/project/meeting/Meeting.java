@@ -1,4 +1,5 @@
 package com.work.project.meeting;
+/*Model Meeting*/
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

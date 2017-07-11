@@ -1,4 +1,6 @@
-package com.work.project.boader;
+package com.work.project.Loader;
+
+/*when starting load employee,department,meeting example*/
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +10,11 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import com.work.project.department.Department;
-import com.work.project.department.DepartmentReporsity;
+import com.work.project.department.DepartmentRepository;
 import com.work.project.employee.Employee;
 import com.work.project.employee.EmployeeRepository;
 import com.work.project.meeting.Meeting;
-import com.work.project.meeting.MeetingReporsity;
+import com.work.project.meeting.MeetingRepository;
 
 
 
@@ -22,10 +24,10 @@ public class Loadeeeer implements ApplicationListener<ContextRefreshedEvent> {
 	 private EmployeeRepository employeerepository;
 	 private Logger log = Logger.getLogger(Loadeeeer.class);
 	 
-	 private DepartmentReporsity departmentrepository;
+	 private DepartmentRepository departmentrepository;
 	private Logger log1=Logger.getLogger(Loadeeeer.class);
 	
-	private MeetingReporsity meetingrepositrory;
+	private MeetingRepository meetingrepositrory;
 	private Logger log2=Logger.getLogger(getClass());
 	 
 	
@@ -37,12 +39,12 @@ public class Loadeeeer implements ApplicationListener<ContextRefreshedEvent> {
     }
 	 
 	 @Autowired
-	 public void setDepartmentLoader(DepartmentReporsity depReporsity){
+	 public void setDepartmentLoader(DepartmentRepository depReporsity){
 		 this.departmentrepository=depReporsity;
 	 }
 	
 	 @Autowired
-	 public void setMeetingLoader(MeetingReporsity meReporsity){
+	 public void setMeetingLoader(MeetingRepository meReporsity){
 		 this.meetingrepositrory=meReporsity;
 	 }
 	 
